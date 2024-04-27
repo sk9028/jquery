@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                margin:0;
+                color:blue;
+            }
+            div, p {
+                margin-left:10px;
+            }
+            span {
+                color:red;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <p>
+            Type 'correct' to validate.
+        </p>
+        <form action="javascript:alert('success!');">
+            <div>
+                <input type="text" />
+ 
+                <input type="submit" />
+            </div>
+        </form>
+        <span></span>
+
+        <p>
+            <input type="text" />
+            <span></span>
+        </p>
+        <script>
+            $("form").submit( function() {
+                if ($("input:first").val() == "correct") { // input 래퍼에서 첫번째로 등장하는 인자의 값을 비교
+                    $("span").text("Validated...").show();
+                    return true;
+                }
+                $("span").text("Not valid!").show().fadeOut(1000);
+                return false;
+            });
+
+            $("input").focus( function () { // 포커스 인
+                $(this).next("span").html('focus'); // input 태그 다음으로 오는 형제 엘리먼트 span을 찾아서 focus문구 추가
+            }).blur( function() {           // 포커스 아웃
+                $(this).next("span").html('blur');
+            }).change(function(e){          // 인풋 값 변경 시
+                alert('change!! '+$(e.target).val());
+            }).select(function(){           // 인풋 값 셀렉트 했을 시
+                $(this).next('span').html('select');
+            });
+        </script>
+    </body>
+</html>

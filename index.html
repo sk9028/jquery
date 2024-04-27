@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+<p>안녕하세요 제 이름은 <span id="name"></span>입니다!</p>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+    $('document').ready(function(){
+        $.ajax({
+        url: "myname.php",
+        type: "get",
+    }).done(function(data) {
+        $('#name').text(data);
+    });
+    })
+    
+</script>
+</body>
+</html>

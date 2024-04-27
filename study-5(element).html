@@ -1,0 +1,41 @@
+<!-- http://api.jquery.com/wrap/ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+                border:2px blue solid;
+                margin:2px;
+                padding:2px;
+            }
+            p {
+                background:yellow;
+                margin:2px;
+                padding:2px;
+            }
+            strong {
+                color:red;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <span>Span Text</span>
+        <strong>What about me?</strong>
+        <span>Another One</span>
+
+        <p id="test1">
+            I would like to say:
+        </p>
+
+        <p id="test2">
+            I would like to say:
+        </p>
+
+        <script>
+            $("span").wrap("<div><div><p><em><b></b></em></p></div></div>"); // 부모로 감싸기  (.unwrap(), .wrap(), .wrapAll(), .wrapInner())
+            $('#test1').append("<strong>Hello</strong>");    // 자식으로 두기  (.append(), .appendTo(), .html(), .prepend(), .prependTo(), .text())
+            $('#test2').after("<b>Hello</b>"); // 형제로 두기 (.after(), .before(), .insertAfter(), .insertBefore())
+        </script>
+    </body>
+</html>
